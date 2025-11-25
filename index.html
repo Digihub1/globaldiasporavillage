@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Diaspora Village - Glasgow 2026 Commonwealth Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #227dff;
+            --secondary: #05339C;
+            --accent: #000;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            padding: 8px 15px;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .user-actions a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .user-actions a:hover {
+            color: var(--primary);
+        }
+
+        nav {
+            background-color: var(--primary);
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Banner Section */
+        .banner {
+            background: linear-gradient(#5e31f5be, #184ebab7), url('https://uploads.onecompiler.io/42newcjzw/443v6pzy7/JS16228067.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .banner h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .banner p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .event-date {
+            background-color: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            color: var(--gray);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Sponsorship Section */
+        .sponsorship-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .sponsorship-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .sponsorship-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .sponsorship-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sponsorship-header h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .sponsorship-price {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .sponsorship-content {
+            padding: 20px;
+        }
+
+        .sponsorship-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .sponsorship-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .sponsorship-features i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .sponsorship-button {
+            display: block;
+            width: 100%;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sponsorship-button:hover {
+            background-color: var(--primary);
+        }
+
+        /* Venues Section */
+        .venues {
+            background-color: white;
+            padding: 60px 0;
+        }
+
+        .venues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .venue-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .venue-card:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .venue-card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .venue-card:hover i {
+            color: white;
+        }
+
+        .venue-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Key Dates */
+        .dates-timeline {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        .timeline-date {
+            flex: 0 0 150px;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .banner h2 {
+                font-size: 36px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--primary);
+                width: 100%;
+                padding: 15px 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                margin-left: 0;
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+            
+            .sponsorship-tiers {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .banner {
+                padding: 40px 0;
+            }
+            
+            .banner h2 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .logo h1 {
+                font-size: 20px;
+            }
+            
+            .search-bar {
+                width: 100%;
+            }
+            
+            .user-actions a {
+                font-size: 12px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+        }
+        
+        /* Additional responsive fixes */
+        @media (max-width: 480px) {
+            .banner h2 {
+                font-size: 24px;
+            }
+            
+            .banner p {
+                font-size: 16px;
+            }
+            
+            .event-date {
+                font-size: 14px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .section-title h2 {
+                font-size: 24px;
+            }
+            
+            .section-subtitle {
+                font-size: 16px;
+            }
+            
+            .about-text h3 {
+                font-size: 20px;
+            }
+            
+            .sponsorship-header h3 {
+                font-size: 20px;
+            }
+            
+            .sponsorship-price {
+                font-size: 24px;
+            }
+            
+            .venue-card h3 {
+                font-size: 18px;
+            }
+            
+            .timeline-date {
+                flex: 0 0 120px;
+                font-size: 14px;
+                padding: 8px 10px;
+            }
+            
+            .timeline-content {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .newsletter h2 {
+                font-size: 28px;
+            }
+            
+            .newsletter p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="#" class="logo-link">
+                        <img src="https://uploads.onecompiler.io/42newcjzw/443v6pzy7/Asset%206-8.png" alt="Global Diaspora Village logo" style="display:block; max-height:48px;">
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <a href="#"><i class="fas fa-user"></i> Sign In</a>
+                    <a href="#"><i class="fas fa-info-circle"></i> Contact</a>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Sponsorship</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <div class="event-date">23 July – 2 August, 2026</div>
+            <h2>Global Diaspora Village</h2>
+            <p>Celebrating culture, sports, trade and tourism at the Glasgow 2026 Commonwealth Games</p>
+            <a href="#" class="cta-button">Become a Sponsor</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>About the Global Diaspora Village</h2>
+        </div>
+        <div class="section-subtitle">
+            <p>Heart for the City presents the Global Diaspora Village as part of the Glasgow 2026 Commonwealth Games, creating opportunities for countries to showcase their culture, tourism, and business potential.</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Vision</h3>
+                <p>Heart for the City has identified the Glasgow 2026 Commonwealth Games as a great opportunity to promote various African, Asian & Caribbean countries that seek to showcase their products, market their countries and attract skills and investors.</p>
+                <p>We are setting up a state-of-the-art Diaspora Mini Village in close proximity to most of the Commonwealth Games venues. Each country will have its own outdoor/indoor Pavilion space (circa 250 sq meters).</p>
+                <p>The Village will offer visitors very high quality corporate hospitality and the platform to promote their own Countries' Tourism & Business investment initiatives.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Global Diaspora Village">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsorship Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Sponsorship Opportunities</h2>
+        </div>
+        <div class="section-subtitle">
+            <p>Join us in creating an unforgettable experience at the Glasgow 2026 Commonwealth Games. Various sponsorship levels available with exclusive benefits.</p>
+        </div>
+        <div class="sponsorship-tiers">
+            <div class="sponsorship-card">
+                <div class="sponsorship-header">
+                    <h3>Main Title Sponsor</h3>
+                    <div class="sponsorship-price">£250,500</div>
+                </div>
+                <div class="sponsorship-content">
+                    <ul class="sponsorship-features">
+                        <li><i class="fas fa-check"></i> Logo on Official DMV Goodie Bag</li>
+                        <li><i class="fas fa-check"></i> Premium Pavilion (4x8 meters)</li>
+                        <li><i class="fas fa-check"></i> Main Stage Backdrop Recognition</li>
+                        <li><i class="fas fa-check"></i> 10 Preferred Hotel Rooms</li>
+                        <li><i class="fas fa-check"></i> Dedicated Meeting Room</li>
+                    </ul>
+                    <a href="#" class="sponsorship-button">Select Plan</a>
+                </div>
+            </div>
+            
+            <div class="sponsorship-card">
+                <div class="sponsorship-header">
+                    <h3>Country Pavilion</h3>
+                    <div class="sponsorship-price">£100,000</div>
+                </div>
+                <div class="sponsorship-content">
+                    <ul class="sponsorship-features">
+                        <li><i class="fas fa-check"></i> Pavilion for Culture & Tourism</li>
+                        <li><i class="fas fa-check"></i> Online Visibility</li>
+                        <li><i class="fas fa-check"></i> Official Sponsor Logo License</li>
+                        <li><i class="fas fa-check"></i> On-site Signage</li>
+                        <li><i class="fas fa-check"></i> GDV Publicity Materials</li>
+                    </ul>
+                    <a href="#" class="sponsorship-button">Select Plan</a>
+                </div>
+            </div>
+            
+            <div class="sponsorship-card">
+                <div class="sponsorship-header">
+                    <h3>Platinum Sponsor</h3>
+                    <div class="sponsorship-price">£75,000</div>
+                </div>
+                <div class="sponsorship-content">
+                    <ul class="sponsorship-features">
+                        <li><i class="fas fa-check"></i> Logo on Official DMV Lanyard</li>
+                        <li><i class="fas fa-check"></i> Premium Booth Space (5x5 meters)</li>
+                        <li><i class="fas fa-check"></i> Main Stage Backdrop</li>
+                        <li><i class="fas fa-check"></i> Registration Area Recognition</li>
+                        <li><i class="fas fa-check"></i> Meeting Room Access</li>
+                    </ul>
+                    <a href="#" class="sponsorship-button">Select Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venues Section -->
+    <section class="venues">
+        <div class="container">
+            <div class="section-title">
+                <h2>Commonwealth Games Venues</h2>
+            </div>
+            <div class="venues-grid">
+                <div class="venue-card">
+                    <i class="fas fa-running"></i>
+                    <h3>Scotstoun Stadium</h3>
+                    <p>Athletics and Para Athletics</p>
+                </div>
+                <div class="venue-card">
+                    <i class="fas fa-swimmer"></i>
+                    <h3>Tollcross Swimming Centre</h3>
+                    <p>Swimming and Para Swimming</p>
+                </div>
+                <div class="venue-card">
+                    <i class="fas fa-basketball-ball"></i>
+                    <h3>Scottish Event Campus</h3>
+                    <p>Basketball, Boxing, Judo, Netball</p>
+                </div>
+                <div class="venue-card">
+                    <i class="fas fa-bicycle"></i>
+                    <h3>Sir Chris Hoy Velodrome</h3>
+                    <p>Track Cycling and Para Track Cycling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Dates Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Key Dates</h2>
+        </div>
+        <div class="dates-timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">13 Jan, 2026</div>
+                <div class="timeline-content">CGV Handover from City Legacy to OC</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">14 March, 2026</div>
+                <div class="timeline-content">Deadline for Sponsorship sign up</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">16 July, 2026</div>
+                <div class="timeline-content">Contractors hand over GDV</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">22 July, 2026</div>
+                <div class="timeline-content">GDV Official Opening and Awards Night</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">23 July, 2026</div>
+                <div class="timeline-content">Commonwealth Games Opening Ceremony</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2 August, 2026</div>
+                <div class="timeline-content">Commonwealth Games Closing Ceremony</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest updates on the Global Diaspora Village and sponsorship opportunities.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Global Diaspora Village</h3>
+                    <p>Celebrating culture, sports, trade and tourism at the Glasgow 2026 Commonwealth Games.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Sponsorship</a></li>
+                        <li><a href="#">Venues</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 9 Manse Rd. Bargeddie, G69 GUB</li>
+                        <li><i class="fas fa-phone"></i> +44 (0) 141 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@globaldiasporavillage.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Global Diaspora Village. All rights reserved. | A Heart for the City Ministry</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
