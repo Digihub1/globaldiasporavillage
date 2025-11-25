@@ -1,0 +1,2 @@
+# globaldiasporavillage
+A static website
